@@ -32,7 +32,7 @@ public class quit extends HttpServlet {
 		
 		HttpSession session=request.getSession(true);
 		session.invalidate();
-		response.sendRedirect("1LOGIN.jsp");
+		response.sendRedirect("index.jsp");
 			
 		
 	}

@@ -45,7 +45,7 @@
 
 
 <div class="panel panel-default">
-    <div class="panel-heading">成绩</div>
+    <div class="panel-heading">预选选课</div>
     <div class="panel-body">
         <table class="table table-bordered">
    	<center>
@@ -61,6 +61,8 @@
 		      </tr>
 		    </thead>
 		    <tbody>
+
+
 		    <c:forEach items="${courselist1}" var="course">
 		<!-- //items 用于接收集合对象，var 定义对象接收从集合里遍历出的每一个元素 -->
 			<tr>
@@ -78,6 +80,8 @@
 	 onclick="javascript:updatecourse(${id},${course.id },'${course.ccode }','${course.cname }',${course.score});" >添加</button></td>
 			</tr>
 		</c:forEach>
+           <button type="button" class="btn btn-warning"
+                    onclick="javascript:stu_course_list();" >结束选课</button></td>
 		    </tbody>
 		  </table>
     </div></center>
@@ -86,7 +90,14 @@
 </div>
 
 	<script type="text/javascript">
-	
+
+        function stu_course_list(){
+            if(window.confirm("是否结束课程(y/n)？")){
+
+                window.location="new_stusys?";
+            }
+        }
+
 		function updatecourse(stu_id,id,ccode,cname,score,list){
 			if(window.confirm("是否要添加该数据(y/n)？")){
 				  						
@@ -103,6 +114,7 @@
 				{
 				alert("已超过本学期学分30分");
 				}
+
 				
 	
 	

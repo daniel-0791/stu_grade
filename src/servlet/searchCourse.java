@@ -41,7 +41,7 @@ public class searchCourse extends HttpServlet {
 		
 		if(courses.isEmpty())
 		{
-			System.out.println("什么都没有");
+
 		}
 		else
 		{

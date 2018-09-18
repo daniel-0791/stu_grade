@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,9 +106,20 @@
           
             <li><a  href="peiyangfangan.jsp" target="chaxun">培养方案</a></li>
              <li><a  href="searchCourse.jsp" target="chaxun">课程查询</a></li>
-             <li><a  href="courselist" target="chaxun">预     &nbsp; &nbsp; &nbsp;选</a></li>
-            <li><a href="stu_course_list" target="chaxun">正  &nbsp; &nbsp; &nbsp;选</a></li>
-            
+            <%--<li><a  href="courselist" target="chaxun">预     &nbsp; &nbsp; &nbsp;选</a></li>--%>
+            <%--<li><a href="stu_course_list" target="chaxun">正  &nbsp; &nbsp; &nbsp;选</a></li>--%>
+            <c:choose>
+                <c:when test="${choose}">
+
+                    <% System.out.println("预选选择");     %>
+                    <li><a  href="courselist" >预     &nbsp; &nbsp; &nbsp;选</a></li>
+                    <%--${choose}--%>
+                </c:when>
+                <c:otherwise>
+                    <%--正选  ${choose}--%>
+                    <li><a href="stu_course_list" target="chaxun">正  &nbsp; &nbsp; &nbsp;选</a></li>
+                </c:otherwise>
+            </c:choose>
            <li><a href="query_grade" target="chaxun">成绩查询</a></li>
            
            

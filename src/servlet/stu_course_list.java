@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.CourseDAO;
 import model.Course;
+import org.apache.jasper.tagplugins.jstl.core.Choose;
 import util.JdbcException;
 
 /**
@@ -33,21 +34,27 @@ public class stu_course_list extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest
+								   request, HttpServletResponse response
+	) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		CourseDAO courseDAO=new CourseDAO();
-		System.out.println("asdasdasdsadsadasdsadsaasasdasda按时到场啊实打实s");
+		System.out.println("正选选课");
 		HttpSession session=request.getSession(true);
-		System.out.println("asdasdasdsadsadasdsadsaasasdasda按时到场s");
+		System.out.println("这里吗111");
 		
 		
 		int stu_id = 0;
 		
 		try {
+			System.out.println("这里吗");
 			 stu_id=(int) session.getAttribute("stu_id");
 			 System.out.println("asdasdasdsadsadasdsadsaasasdasdas");
 				ArrayList<Course> courses=courseDAO.findAll_stu(stu_id);
 					System.out.println("这里在运行");
+					/*boolean choose= (boolean) session.getAttribute("choose");
+					choose=false;
+					session.setAttribute("choose",choose);*/
 				
 				
 				request.setAttribute("courselist_stu", courses);//(������", ����ֵ)����ֵ

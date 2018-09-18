@@ -67,7 +67,7 @@ public class course_add extends HttpServlet {
 			session.setAttribute("stu_id", stu_id);
 			String str="select * from plan_study_course where course_id=? and student_id=?";
 			PreparedStatement sql=(PreparedStatement) conn.prepareStatement(str);
-			
+
 			sql.setInt(1,course_id);
 			sql.setInt(2, stu_id);
 			rs=sql.executeQuery();
@@ -86,7 +86,7 @@ public class course_add extends HttpServlet {
 		        	PreparedStatement sql1=(PreparedStatement) conn.prepareStatement(str3);
 					sql1.setInt(1, stu_id);
 					rs1=sql1.executeQuery();
-					System.out.println("选择后显示了没2");
+//					System.out.println("选择后显示了没2");
 					//System.out.println(rs1.);
 					int sum=0;
 					if(rs1.next())

@@ -66,12 +66,16 @@ public class student_login extends HttpServlet {
 		            session.setAttribute("id", id);
 		            session.setAttribute("name", name);
 		            session.setAttribute("photo", photo);
+				  boolean choose=true;
+				  session.setAttribute("choose", choose);
+				  session.setAttribute("stu_loginer",name);
+
 		            RequestDispatcher dis=request.getRequestDispatcher("stuSystem.jsp");
 		            dis.forward(request, response);
 		        }
 		        else{  
 		            System.out.println("输入的密码或账号不正确，请重新输入");
-		            RequestDispatcher sc=request.getRequestDispatcher("1LOGIN.jsp");
+		            RequestDispatcher sc=request.getRequestDispatcher("index.jsp");
 		            sc.forward(request, response);
 		                   
 		            }

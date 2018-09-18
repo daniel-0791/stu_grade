@@ -65,12 +65,13 @@ public class teacher_login extends HttpServlet {
 		            HttpSession session=request.getSession(true);
 		            session.setAttribute("name1", name);
 		            session.setAttribute("photo1", photo);
+				  session.setAttribute("tea_loginer",name);
 		            RequestDispatcher dis=request.getRequestDispatcher("teacherManager.jsp");
 		            dis.forward(request, response);
 		        }
 		        else{ 
 		            System.out.println("登录失败");
-		            response.sendRedirect("1LOGIN.jsp");	        }
+		            response.sendRedirect("index.jsp");	        }
 			
 		} catch (SQLException e) {
 	
